@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import { Button } from '../Button';
+import { useState } from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { COLORS, FONT_SIZE, RADIUS, SPACING } from '../../constants';
+import { Button } from '../Button';
 
 type Props = {
   value: string;
@@ -10,16 +10,20 @@ type Props = {
 };
 
 export function AddTaskInput({ value, onChangeText, onAdd }: Props) {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <View style={styles.container}>
       <TextInput
-        style={styles.input}
+        style={[styles.input, isFocused && styles.inputFocused]}
         value={value}
         onChangeText={onChangeText}
         placeholder="Adicione algo a sua lista"
         placeholderTextColor={COLORS.placeholder}
         returnKeyType="done"
         onSubmitEditing={onAdd}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
       <Button onPress={onAdd} />
     </View>
@@ -43,5 +47,8 @@ const styles = StyleSheet.create({
     color: COLORS.textPrimary,
     borderWidth: 1,
     borderColor: COLORS.border,
+  },
+  inputFocused: {
+    borderColor: COLORS.purple,
   },
 });
