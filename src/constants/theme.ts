@@ -21,6 +21,7 @@ export const COLORS = {
 } as const;
 
 export const SPACING = {
+  xxs: 2,
   xs: 4,
   sm: 8,
   md: 12,
@@ -41,9 +42,3 @@ export const FONT_SIZE = {
   lg: 16,
   xl: 24,
 } as const;
-
-// Se quiser usar a fonte Inter (como no print), instale @expo-google-fonts/inter
-export const FONT_FAMILY = {
-  regular: undefined as string | undefined, // 'Inter_400Regular'
-  bold: undefined as string | undefined, // 'Inter_700Bold'
-};

@@ -21,6 +21,8 @@ export function TaskItem({ title, done, onToggle, onRemove }: Props) {
     return (
       <TouchableOpacity
         activeOpacity={0.8}
+        accessibilityRole="button"
+        accessibilityLabel="Remover tarefa"
         style={styles.deleteAction}
         onPress={() => {
           swipeable.close();
@@ -42,6 +44,12 @@ export function TaskItem({ title, done, onToggle, onRemove }: Props) {
     >
       <TouchableOpacity
         activeOpacity={0.7}
+        accessibilityRole="checkbox"
+        accessibilityState={{ checked: done }}
+        accessibilityActions={[{ name: 'delete', label: 'Remover tarefa' }]}
+        onAccessibilityAction={(e) => {
+          if (e.nativeEvent.actionName === 'delete') onRemove();
+        }}
         style={styles.container}
         onPress={onToggle}
       >

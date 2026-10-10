@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   container: {
     minWidth: 25,
     paddingHorizontal: SPACING.sm,
-    paddingVertical: 2,
+    paddingVertical: SPACING.xxs,
     borderRadius: RADIUS.full,
     backgroundColor: COLORS.badge,
     alignItems: 'center',

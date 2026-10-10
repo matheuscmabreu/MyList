@@ -11,6 +11,7 @@ export function Button({ icon = 'plus-circle', style, ...rest }: Props) {
   return (
     <TouchableOpacity
       activeOpacity={0.7}
+      accessibilityRole="button"
       style={[styles.button, style]}
       {...rest}
     >
